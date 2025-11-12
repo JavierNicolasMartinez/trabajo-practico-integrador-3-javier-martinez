@@ -174,6 +174,8 @@ export const RegisterPage = ({ onLogin }) => {
                     <Link to="/login" className="">
                       Login
                     </Link>
+
+                    {/* //como agregar el navigate login */}
                   </p>
                 </div>
               </div>
