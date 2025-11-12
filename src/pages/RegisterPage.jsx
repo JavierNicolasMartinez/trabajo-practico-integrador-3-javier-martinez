@@ -171,7 +171,7 @@ export const RegisterPage = ({ onLogin }) => {
                   </button>
                   <p className="">
                     ¿Ya estas registrado?{" "}
-                    <Link to="/login" className="">
+                    <Link to="login" className="">
                       Login
                     </Link>
 

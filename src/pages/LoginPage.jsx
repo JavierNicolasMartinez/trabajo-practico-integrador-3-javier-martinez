@@ -115,7 +115,7 @@ export const LoginPage = ({ onLogin }) => {
           </form>
           <p className="">
             You don't have an account?{" "}
-            <Link to="/register" className="">
+            <Link to="register" className="">
               Register
             </Link>
           </p>
