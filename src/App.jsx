@@ -9,7 +9,9 @@ export const App = () => {
 
   const checkAuth = async () => {
     try {
-      const res = await fetch("url");
+      const res = await fetch("http://localhost:3000/api/profile", {
+        credentials: "include",
+      });
 
       if (res.ok) {
         setIsAuth(true);

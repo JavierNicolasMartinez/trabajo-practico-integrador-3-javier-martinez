@@ -25,8 +25,10 @@ export const LoginPage = ({ onLogin }) => {
       });
 
       const data = await res.json();
+
       if (res.ok) {
         onLogin();
+        console.log(res.ok);
       } else {
         alert(data.message || "Credenciales invalidas");
         handleReset();
@@ -100,7 +102,7 @@ export const LoginPage = ({ onLogin }) => {
               />
             </div>
 
-            <button type="submit" className="" onClick={handleLogin}>
+            <button type="submit" className="">
               <span className="">Enter TP2</span>
             </button>
 

@@ -1,10 +1,8 @@
 import { Navigate, Outlet } from "react-router";
 import { Navbar } from "../components/Navbar.jsx";
 
-export const PrivateRoutes = () => {
-  const isLogged = localStorage.getItem("isLogged");
-
-  return isLogged ? (
+export const PrivateRoutes = ({ isAuth }) => {
+  return isAuth ? (
     <>
       <Navbar />
       <Outlet />

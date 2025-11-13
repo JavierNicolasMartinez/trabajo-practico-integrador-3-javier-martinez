@@ -1,9 +1,7 @@
 import { Navigate, Outlet } from "react-router";
 
-export const PublicRoutes = () => {
-  const isLogged = localStorage.getItem("isLogged");
-
-  return !isLogged ? <Outlet /> : <Navigate to="/home" />;
+export const PublicRoutes = ({ isAuth }) => {
+  return !isAuth ? <Outlet /> : <Navigate to="/home" />;
 };
 
 // const PublicRoute = ({ children, isAuth }) => {
