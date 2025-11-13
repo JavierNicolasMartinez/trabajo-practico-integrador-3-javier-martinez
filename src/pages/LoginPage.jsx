@@ -42,38 +42,27 @@ export const LoginPage = ({ onLogin }) => {
       navigate("/home");
     }
   };
-  // const handleLogin = async (event) => {
-  //   event.preventDefault();
-  //   const peticion = await fetch("url de mi backend", {
-  //     method: "POST",
-  //     body: JSON.stringify({formState}),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   const data = await peticion.json();
-  //   if (!peticion.ok) {
-  //     return alert(data.message);
-  //   }
-  //    onLogin();
-
-  //   navigate("/home");
-
-  // };
 
   return (
-    <main className="">
+    // CONTENEDOR PRINCIPAL
+    <main className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
       {loading && <Loading />}
-      <div className="">
-        <div className="">
-          <div className="">
-            <h1 className="">Welcome</h1>
+      <div className="w-full max-w-md">
+        {/* TARJETA DEL FORMULARIO */}
+        <div className="bg-white p-8 shadow-xl rounded-xl">
+          {/* Header */}
+          <div className="mb-6 text-center">
+            <h1 className="text-3xl font-extrabold text-gray-800">Welcome</h1>
           </div>
 
-          <form onSubmit={handleLogin} className="">
-            <div className="">
-              <label htmlFor="username" className="">
-                <span className="">👤 Username</span>
+          <form onSubmit={handleLogin} className="space-y-6">
+            {/* Input Username */}
+            <div className="space-y-2">
+              <label
+                htmlFor="username"
+                className="text-sm font-medium text-gray-700"
+              >
+                <span className="flex items-center">👤 Username</span>
               </label>
               <input
                 type="text"
@@ -82,14 +71,18 @@ export const LoginPage = ({ onLogin }) => {
                 value={formState.username}
                 onChange={handleChange}
                 id="username"
-                className=""
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 disabled:bg-gray-100"
                 required
               />
             </div>
 
-            <div className="">
-              <label htmlFor="password" className="">
-                <span className="">🔒 Password</span>
+            {/* Input Password */}
+            <div className="space-y-2">
+              <label
+                htmlFor="password"
+                className="text-sm font-medium text-gray-700"
+              >
+                <span className="flex items-center">🔒 Password</span>
               </label>
               <input
                 type="password"
@@ -98,23 +91,38 @@ export const LoginPage = ({ onLogin }) => {
                 value={formState.password}
                 onChange={handleChange}
                 id="password"
-                className=""
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 disabled:bg-gray-100"
+                required
               />
             </div>
 
-            <button type="submit" className="">
-              <span className="">Enter TP2</span>
+            {/* Botón Submit/Enter */}
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-150 disabled:bg-blue-400"
+              disabled={loading}
+            >
+              <span className="text-lg">
+                {loading ? "Logging in..." : "Enter TP2"}
+              </span>
             </button>
 
-            <div className="">
-              <p className="">
-                Forgot your details? <span className="">Coming soon</span>
+            {/* Enlaces adicionales */}
+            <div className="text-center">
+              <p className="text-sm text-gray-500">
+                Forgot your details?{" "}
+                <span className="text-gray-400">Coming soon</span>
               </p>
             </div>
           </form>
-          <p className="">
+
+          {/* Link a Register */}
+          <p className="text-center text-sm text-gray-600 mt-6 pt-4 border-t border-gray-100">
             ¿You don't have an account?{" "}
-            <Link to="/register" className="">
+            <Link
+              to="/register"
+              className="text-blue-600 hover:text-blue-800 font-semibold transition duration-150"
+            >
               Register
             </Link>
           </p>

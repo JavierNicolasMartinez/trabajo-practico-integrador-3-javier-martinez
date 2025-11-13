@@ -54,26 +54,34 @@ export const RegisterPage = () => {
   };
 
   return (
-    <main className="">
+    // CONTENEDOR PRINCIPAL
+    <main className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
       {loading && <Loading />}
-      <div className="">
-        <div className="">
+      <div className="w-full max-w-4xl">
+        {/* TARJETA DEL FORMULARIO */}
+        <div className="bg-white p-6 md:p-10 shadow-xl rounded-xl">
           {/* Header */}
-          <div className="">
-            <h1 className="">CREATE</h1>
-            <div className="">
-              <div className=""></div>
+          <div className="mb-8">
+            <h1 className="text-3xl font-extrabold text-gray-800 text-center">
+              CREATE YOUR ACCOUNT
+            </h1>
+            {/* Div con línea divisora */}
+            <div className="mt-4 flex justify-center">
+              <div className="w-24 h-1 bg-blue-500 rounded-full"></div>
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="">
-            <div className="">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Columna izquierda */}
-              <div className="">
+              <div className="space-y-6">
                 {/* Username */}
-                <div className="">
-                  <label htmlFor="username" className="">
-                    <span className="">👤 Username</span>
+                <div className="space-y-2">
+                  <label
+                    htmlFor="username"
+                    className="text-sm font-medium text-gray-700"
+                  >
+                    <span className="flex items-center">👤 Username</span>
                   </label>
                   <input
                     type="text"
@@ -83,15 +91,18 @@ export const RegisterPage = () => {
                     disabled={loading}
                     id="username"
                     placeholder="Tu usuario único"
-                    className=""
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 disabled:bg-gray-100"
                     required
                   />
                 </div>
 
                 {/* Email */}
-                <div className="">
-                  <label htmlFor="email" className="">
-                    <span className="">📧 Email</span>
+                <div className="space-y-2">
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-medium text-gray-700"
+                  >
+                    <span className="flex items-center">📧 Email</span>
                   </label>
                   <input
                     type="email"
@@ -101,15 +112,18 @@ export const RegisterPage = () => {
                     disabled={loading}
                     id="email"
                     placeholder="tu@email.com"
-                    className=""
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 disabled:bg-gray-100"
                     required
                   />
                 </div>
 
                 {/* Password */}
-                <div className="">
-                  <label htmlFor="password" className="">
-                    <span className="">🔒 Password</span>
+                <div className="space-y-2">
+                  <label
+                    htmlFor="password"
+                    className="text-sm font-medium text-gray-700"
+                  >
+                    <span className="flex items-center">🔒 Password</span>
                   </label>
                   <input
                     type="password"
@@ -119,17 +133,20 @@ export const RegisterPage = () => {
                     disabled={loading}
                     id="password"
                     placeholder="********"
-                    className=""
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 disabled:bg-gray-100"
                     required
                   />
                 </div>
               </div>
 
               {/* Columna derecha */}
-              <div className="">
+              <div className="space-y-6">
                 {/* Firstname */}
-                <div className="">
-                  <label htmlFor="name" className="">
+                <div className="space-y-2">
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-medium text-gray-700"
+                  >
                     <span className="">Name</span>
                   </label>
                   <input
@@ -140,14 +157,17 @@ export const RegisterPage = () => {
                     disabled={loading}
                     id="name"
                     placeholder="your name"
-                    className=""
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 disabled:bg-gray-100"
                     required
                   />
                 </div>
 
                 {/* Lastname */}
-                <div className="">
-                  <label htmlFor="lastname" className="">
+                <div className="space-y-2">
+                  <label
+                    htmlFor="lastname"
+                    className="text-sm font-medium text-gray-700"
+                  >
                     <span className="">Lastname</span>
                   </label>
                   <input
@@ -158,25 +178,38 @@ export const RegisterPage = () => {
                     disabled={loading}
                     id="lastname"
                     placeholder="lastname"
-                    className=""
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 disabled:bg-gray-100"
                     required
                   />
                 </div>
 
                 {/* Botones */}
-                <div className="">
-                  <button type="button" onClick={handleReset} className="">
+                <div className="pt-2 flex flex-col space-y-3 md:pt-16">
+                  {/* Botón Reset */}
+                  <button
+                    type="button"
+                    onClick={handleReset}
+                    className="w-full bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-150"
+                  >
                     🔄 Reset
                   </button>
-                  <button type="submit" className="" onClick={handleSubmit}>
+                  {/* Botón Submit/Register */}
+                  <button
+                    type="submit"
+                    className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-150 disabled:bg-blue-400"
+                    disabled={loading}
+                  >
                     {loading ? "Registrando..." : "Register"}
                   </button>
-                  <p className="">
+                  {/* Link a Login */}
+                  <p className="text-center text-sm text-gray-600 mt-4">
                     ¿Are you already registered?{" "}
-                    <Link to="/login" className="">
+                    <Link
+                      to="/login"
+                      className="text-blue-600 hover:text-blue-800 font-semibold transition duration-150"
+                    >
                       Login
                     </Link>
-                    {/* //como agregar el navigate login */}
                   </p>
                 </div>
               </div>

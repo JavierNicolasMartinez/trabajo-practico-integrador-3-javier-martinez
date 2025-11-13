@@ -4,7 +4,7 @@ import { Navbar } from "../components/Navbar.jsx";
 export const PrivateRoutes = ({ isAuth }) => {
   return isAuth ? (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Outlet />
     </>
   ) : (
