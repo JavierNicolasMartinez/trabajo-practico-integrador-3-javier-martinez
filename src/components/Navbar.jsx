@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export const Navbar = ({ isAuth, onLogout }) => {
   const navigate = useNavigate();
@@ -16,7 +16,6 @@ export const Navbar = ({ isAuth, onLogout }) => {
       navigate("/login");
     }
   };
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -45,10 +44,10 @@ export const Navbar = ({ isAuth, onLogout }) => {
             </>
           ) : (
             <>
-              <Link to="/login" className="">
+              <Link to="login" className="">
                 Login
               </Link>
-              <Link to="/register" className="">
+              <Link to="register" className="">
                 Register
               </Link>
             </>

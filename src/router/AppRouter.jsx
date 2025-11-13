@@ -1,11 +1,11 @@
 import { Navigate, Route, Routes } from "react-router";
-import { HomePage } from "../pages/HomePage";
-import { LoginPage } from "../pages/LoginPage";
-import { RegisterPage } from "../pages/RegisterPage";
-import { PrivateRoutes } from "./PrivateRoutes";
-import { PublicRoutes } from "./PublicRoutes";
-import { ProfilePage } from "../pages/ProfilePage";
-import { TasksPage } from "../pages/TasksPage";
+import { HomePage } from "../pages/HomePage.jsx";
+import { LoginPage } from "../pages/LoginPage.jsx";
+import { RegisterPage } from "../pages/RegisterPage.jsx";
+import { PrivateRoutes } from "./PrivateRoute.jsx";
+import { PublicRoutes } from "./PublicRoute.jsx";
+import { ProfilePage } from "../pages/ProfilePage.jsx";
+import { TasksPage } from "../pages/TasksPage.jsx";
 
 export const AppRouter = ({ isAuth, onLogin, onLogout }) => {
   return (

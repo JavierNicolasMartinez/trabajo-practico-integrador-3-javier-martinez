@@ -1,6 +1,6 @@
-import { AppRouter } from "./router/AppRouter";
-import { Footer } from "./components/Footer";
-import { Navbar } from "./components/Navbar";
+import { AppRouter } from "./router/AppRouter.jsx";
+import { Footer } from "./components/Footer.jsx";
+import { Navbar } from "./components/Navbar.jsx";
 import { useState } from "react";
 export const App = () => {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isLogged"));
@@ -16,14 +16,14 @@ export const App = () => {
   };
 
   return (
-  <>
-  <Navbar isAuth={isAuth} onLogout={handleLogout} />
-  <AppRouter
-  isAuth={isAuth}
-  onLogin={handleLogin}
-  onLogout={handleLogout}
-  />
-  <Footer />
-</>
+    <>
+      <Navbar isAuth={isAuth} onLogout={handleLogout} />
+      <AppRouter
+        isAuth={isAuth}
+        onLogin={handleLogin}
+        onLogout={handleLogout}
+      />
+      <Footer />
+    </>
   );
 };
