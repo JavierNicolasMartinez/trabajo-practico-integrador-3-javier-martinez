@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router";
-import { useForm } from "../hooks/useForm.js";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router";
 import { Loading } from "../components/Loading.jsx";
+import { useForm } from "../hooks/useForm.js";
 
 export const LoginPage = ({ onLogin }) => {
   const navigate = useNavigate();
@@ -15,8 +15,6 @@ export const LoginPage = ({ onLogin }) => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    setLoading(true);
-    navigate("/home");
 
     try {
       const res = await fetch("http://localhost:3000/api/login", {
@@ -39,6 +37,7 @@ export const LoginPage = ({ onLogin }) => {
       handleReset();
     } finally {
       setLoading(false);
+      navigate("/home");
     }
   };
   // const handleLogin = async (event) => {
@@ -54,9 +53,7 @@ export const LoginPage = ({ onLogin }) => {
   //   if (!peticion.ok) {
   //     return alert(data.message);
   //   }
-
-  //   localStorage.setItem("token", data.token);
-  //   alert(data.message)
+  //    onLogin();
 
   //   navigate("/home");
 
@@ -67,7 +64,6 @@ export const LoginPage = ({ onLogin }) => {
       {loading && <Loading />}
       <div className="">
         <div className="">
-          {/* Header con estilo Simpson */}
           <div className="">
             <h1 className="">Welcome</h1>
           </div>
@@ -115,7 +111,7 @@ export const LoginPage = ({ onLogin }) => {
             </div>
           </form>
           <p className="">
-            You don't have an account?{" "}
+            ¿You don't have an account?{" "}
             <Link to="/register" className="">
               Register
             </Link>

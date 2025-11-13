@@ -21,6 +21,7 @@ export const Navbar = ({ isAuth, onLogout }) => {
     event.preventDefault();
     navigate("/home");
   };
+
   return (
     <nav className="">
       <div className="">
@@ -44,10 +45,10 @@ export const Navbar = ({ isAuth, onLogout }) => {
             </>
           ) : (
             <>
-              <Link to="login" className="">
+              <Link to="/login" className="">
                 Login
               </Link>
-              <Link to="register" className="">
+              <Link to="/register" className="">
                 Register
               </Link>
             </>

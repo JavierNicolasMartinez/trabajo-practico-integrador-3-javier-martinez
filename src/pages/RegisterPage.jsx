@@ -1,15 +1,15 @@
-import { Link, Navigate, useNavigate } from "react-router";
-import { useForm } from "../hooks/useForm.js";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router";
 import { Loading } from "../components/Loading.jsx";
+import { useForm } from "../hooks/useForm.js";
 
-export const RegisterPage = ({ onLogin }) => {
+export const RegisterPage = () => {
   const navigate = useNavigate();
   const { formState, handleChange, handleReset } = useForm({
     username: "",
     email: "",
     password: "",
-    firstname: "",
+    name: "",
     lastname: "",
   });
 
@@ -18,10 +18,9 @@ export const RegisterPage = ({ onLogin }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
-    navigate("/login");
 
     const payload = {
-      name: formState.firstname,
+      name: formState.name,
       lastname: formState.lastname,
       email: formState.email,
       username: formState.username,
@@ -39,7 +38,7 @@ export const RegisterPage = ({ onLogin }) => {
       });
       const data = await res.json();
       if (res.ok) {
-        onLogin();
+        console.log("Usuario Registrado");
       } else {
         alert(data.message || "Error al registrarse");
         handleReset();
@@ -50,6 +49,7 @@ export const RegisterPage = ({ onLogin }) => {
       handleReset();
     } finally {
       setLoading(false);
+      navigate("/login");
     }
   };
 
@@ -129,15 +129,16 @@ export const RegisterPage = ({ onLogin }) => {
               <div className="">
                 {/* Firstname */}
                 <div className="">
-                  <label htmlFor="firstname" className="">
+                  <label htmlFor="name" className="">
                     <span className="">Name</span>
                   </label>
                   <input
                     type="text"
-                    name="firstname"
-                    value={formState.firstname}
+                    name="name"
+                    value={formState.name}
                     onChange={handleChange}
-                    id="firstname"
+                    disabled={loading}
+                    id="name"
                     placeholder="your name"
                     className=""
                     required
@@ -154,6 +155,7 @@ export const RegisterPage = ({ onLogin }) => {
                     name="lastname"
                     value={formState.lastname}
                     onChange={handleChange}
+                    disabled={loading}
                     id="lastname"
                     placeholder="lastname"
                     className=""
@@ -170,10 +172,10 @@ export const RegisterPage = ({ onLogin }) => {
                     {loading ? "Registrando..." : "Register"}
                   </button>
                   <p className="">
-                    ¿Ya estas registrado?{" "}
-                    <Navigate to="/login" className="">
+                    ¿Are you already registered?{" "}
+                    <Link to="/login" className="">
                       Login
-                    </Navigate>
+                    </Link>
                     {/* //como agregar el navigate login */}
                   </p>
                 </div>

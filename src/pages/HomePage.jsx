@@ -78,7 +78,7 @@ export const HomePage = () => {
 
           <div className="">
             <Link to="/tasks" className="">
-              go to tasks
+              Go to tasks
             </Link>
           </div>
         </div>

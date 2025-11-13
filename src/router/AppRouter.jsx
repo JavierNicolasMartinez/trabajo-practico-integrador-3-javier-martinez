@@ -10,8 +10,8 @@ import { TasksPage } from "../pages/TasksPage.jsx";
 export const AppRouter = ({ isAuth, onLogin, onLogout }) => {
   return (
     <Routes>
-      <Route element={<PublicRoutes isAuth={isAuth} onLogin={onLogin} />}>
-        <Route path="/login" element={<LoginPage />} />
+      <Route element={<PublicRoutes isAuth={isAuth} />}>
+        <Route path="/login" element={<LoginPage onLogin={onLogin} />} />
         <Route path="/register" element={<RegisterPage />} />
       </Route>
       <Route element={<PrivateRoutes isAuth={isAuth} />}>
