@@ -11,16 +11,16 @@ export const AppRouter = ({ isAuth, onLogin, onLogout }) => {
   return (
     <Routes>
       <Route element={<PublicRoutes isAuth={isAuth} onLogin={onLogin} />}>
-        <Route path="login" element={<LoginPage />} />
-        <Route path="register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Route>
       <Route element={<PrivateRoutes isAuth={isAuth} />}>
-        <Route path="home" element={<HomePage />} />
-        <Route path="profile" element={<ProfilePage onLogout={onLogout} />} />
-        <Route path="tasks" element={<TasksPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/profile" element={<ProfilePage onLogout={onLogout} />} />
+        <Route path="/tasks" element={<TasksPage />} />
       </Route>
 
-      <Route path="*" element={<Navigate to={isAuth ? "/home" : "login"} />} />
+      <Route path="*" element={<Navigate to={isAuth ? "/home" : "/login"} />} />
     </Routes>
   );
 };

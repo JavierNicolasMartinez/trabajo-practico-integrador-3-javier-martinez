@@ -1,10 +1,10 @@
-import { Link } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { useForm } from "../hooks/useForm.js";
 import { useState } from "react";
 import { Loading } from "../components/Loading.jsx";
 
 export const RegisterPage = ({ onLogin }) => {
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   const { formState, handleChange, handleReset } = useForm({
     username: "",
     email: "",
@@ -18,7 +18,7 @@ export const RegisterPage = ({ onLogin }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
-    // navigate("/login");
+    navigate("/login");
 
     const payload = {
       name: formState.firstname,
@@ -171,9 +171,9 @@ export const RegisterPage = ({ onLogin }) => {
                   </button>
                   <p className="">
                     ¿Ya estas registrado?{" "}
-                    <Link to="login" className="">
+                    <Navigate to="/login" className="">
                       Login
-                    </Link>
+                    </Navigate>
                     {/* //como agregar el navigate login */}
                   </p>
                 </div>

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Navigate } from "react-router";
 import { Loading } from "../components/Loading.jsx";
+import { useNavigate } from "react-router";
 
 export const ProfilePage = ({ onLogout }) => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
 
   const fetchProfile = async () => {
     try {
@@ -17,7 +19,7 @@ export const ProfilePage = ({ onLogout }) => {
       } else {
         console.error("Error loading profile");
         onLogout();
-        Navigate("login");
+        navigate("/login");
       }
     } catch (error) {
       console.error(error);
