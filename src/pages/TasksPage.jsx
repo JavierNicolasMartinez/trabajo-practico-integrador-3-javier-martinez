@@ -16,9 +16,9 @@ export const TasksPage = () => {
   const [idEdit, setIdEdit] = useState(null);
 
   const fetchTasks = async () => {
-    if (tasks.length === 0) {
-      setLoading(true);
-    }
+    // if (tasks.length === 0) {
+    setLoading(true);
+    // }
 
     try {
       const res = await fetch("http://localhost:3000/api/tasks-by-user", {
@@ -48,9 +48,9 @@ export const TasksPage = () => {
     event.preventDefault();
 
     if (idEdit) {
-      handleUpdateTask();
+      await handleUpdateTask();
     } else {
-      handleCreateTask();
+      await handleCreateTask();
     }
   };
 
@@ -82,9 +82,9 @@ export const TasksPage = () => {
         body: JSON.stringify(formState),
       });
       if (res.ok) {
-        alert("The task completed");
+        alert("The task created");
         handleReset();
-        fetchTasks();
+        await fetchTasks();
       } else {
         const data = await res.json();
         alert(data.message || "Error creating task");
@@ -103,7 +103,7 @@ export const TasksPage = () => {
     try {
       const res = await fetch(`http://localhost:3000/api/tasks/${idEdit}`, {
         method: "PUT",
-        headers: { "Context-Type": "application/json" },
+        headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify(formState),
       });
@@ -111,7 +111,7 @@ export const TasksPage = () => {
       if (res.ok) {
         alert("The task updated");
         handleCanceleEdit();
-        fetchTasks();
+        await fetchTasks();
       } else {
         const data = await res.json();
         alert(data.message || "Error updating task");
@@ -134,7 +134,7 @@ export const TasksPage = () => {
       });
       if (res.ok) {
         alert("The task deleted");
-        fetchTasks();
+        await fetchTasks();
       } else {
         const data = await res.json();
         alert(data.message || "Error deleting the task");

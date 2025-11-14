@@ -9,6 +9,8 @@ export const HomePage = () => {
 
   const loadHomeData = async () => {
     try {
+      setLoading(true);
+
       const promiseProfile = fetch("http://localhost:3000/api/profile", {
         credentials: "include",
       });
