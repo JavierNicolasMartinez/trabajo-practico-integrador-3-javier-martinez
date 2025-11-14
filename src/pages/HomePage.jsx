@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { Loading } from "../components/Loading.jsx";
 
-export const HomePage = () => {
+export const HomePage = ({ taskRefreshKey }) => {
   const [userData, setUserData] = useState(null);
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,7 +14,7 @@ export const HomePage = () => {
       const promiseProfile = fetch("http://localhost:3000/api/profile", {
         credentials: "include",
       });
-      const promiseTasks = fetch("http://localhost:3000/api/tasks", {
+      const promiseTasks = fetch("http://localhost:3000/api/tasks-by-user", {
         credentials: "include",
       });
 
@@ -46,7 +46,7 @@ export const HomePage = () => {
 
   useEffect(() => {
     loadHomeData();
-  }, []);
+  }, [taskRefreshKey]);
 
   const allTasks = tasks.length;
   const completedTasks = tasks.filter((task) => task.is_completed).length;

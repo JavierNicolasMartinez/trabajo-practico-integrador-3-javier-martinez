@@ -6,6 +6,7 @@ import { Loading } from "./components/Loading.jsx";
 export const App = () => {
   const [isAuth, setIsAuth] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [taskRefreshKey, setTaskRefreshKey] = useState(0);
 
   const checkAuth = async () => {
     try {
@@ -37,6 +38,10 @@ export const App = () => {
     setIsAuth(false);
   };
 
+  const handleTaskChange = () => {
+    setTaskRefreshKey((prevKey) => prevKey + 1);
+  };
+
   if (loading) {
     return (
       <div>
@@ -53,6 +58,8 @@ export const App = () => {
         isAuth={isAuth}
         onLogin={handleLogin}
         onLogout={handleLogout}
+        taskRefreshKey={taskRefreshKey}
+        onTasksChange={handleTaskChange}
       />
       <Footer />
     </>

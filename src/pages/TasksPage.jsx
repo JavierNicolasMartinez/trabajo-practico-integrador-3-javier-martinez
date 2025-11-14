@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Loading } from "../components/Loading";
 import { useForm } from "../hooks/useForm.js";
 
-export const TasksPage = () => {
+export const TasksPage = ({ onTasksChange }) => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -85,6 +85,7 @@ export const TasksPage = () => {
         alert("The task created");
         handleReset();
         await fetchTasks();
+        onTasksChange && onTasksChange();
       } else {
         const data = await res.json();
         alert(data.message || "Error creating task");
@@ -112,6 +113,7 @@ export const TasksPage = () => {
         alert("The task updated");
         handleCanceleEdit();
         await fetchTasks();
+        onTasksChange && onTasksChange();
       } else {
         const data = await res.json();
         alert(data.message || "Error updating task");
@@ -135,6 +137,7 @@ export const TasksPage = () => {
       if (res.ok) {
         alert("The task deleted");
         await fetchTasks();
+        onTasksChange && onTasksChange();
       } else {
         const data = await res.json();
         alert(data.message || "Error deleting the task");
