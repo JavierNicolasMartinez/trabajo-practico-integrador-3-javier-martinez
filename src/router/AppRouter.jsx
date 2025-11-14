@@ -28,7 +28,7 @@ export const AppRouter = ({
         <Route path="/profile" element={<ProfilePage onLogout={onLogout} />} />
         <Route
           path="/tasks"
-          element={<TasksPage onTasksChange={onTaskChange} />}
+          element={<TasksPage onTaskChange={onTaskChange} />}
         />
       </Route>
 

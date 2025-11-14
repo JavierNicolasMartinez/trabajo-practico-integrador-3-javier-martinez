@@ -75,6 +75,13 @@ export const HomePage = ({ taskRefreshKey }) => {
 
         {/* CONTENEDOR DE ESTADÍSTICAS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-b border-gray-200 py-6">
+          {/* 💡 TARJETA FALTANTE: Total de Tareas */}
+          <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 shadow-sm text-center">
+            <h2 className="text-4xl font-extrabold text-blue-600">
+              {allTasks}
+            </h2>
+            <p className="text-sm font-medium text-gray-600 mt-1">Tasks All</p>
+          </div>
           {/* Tarjeta de Tareas Completadas */}
           <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500 shadow-sm text-center">
             <h2 className="text-4xl font-extrabold text-green-600">
